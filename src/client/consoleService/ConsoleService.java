@@ -1,4 +1,4 @@
-package consoleService;
+package app.consoleService;
 
 import java.util.Scanner;
 
@@ -14,6 +14,11 @@ public class ConsoleService implements IConsoleService {
     public void setScanner(Scanner scan){
         this.scan = scan;
     }
+    @Override
+    public Scanner getScanner() {
+        return scan;
+    }
+
     @Override
     public String[] parseCommand(){
         return this
