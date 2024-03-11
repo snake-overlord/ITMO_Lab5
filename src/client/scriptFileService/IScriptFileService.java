@@ -1,8 +1,9 @@
-package scriptFileService;
+package app.scriptFileService;
 
 import java.util.List;
 
 public interface IScriptFileService {
     String getFileName();
-    List<String[]> getCommands();
+    void setFileName(String fileName);
+    void executeScript();
 }
