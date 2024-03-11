@@ -8,9 +8,16 @@ import java.util.Objects;
 
 public class DMS_Configuration {
     private static IControlService controlService;
+
     public static String getEnv() {
-        String env = "C:\\Users\\79832\\test\\test.xml";
-        return env;
+        String env = System.getenv("LAB5_ITEMS_PATH");
+        if (Objects.nonNull(env)) {
+            System.out.printf("Будет использовано имя файла: %s.", env);
+            return env;
+        } else {
+            System.out.printf("Будет использовано стандартное имя файла: %s.\n", "C:\\Users\\79832\\test\\test.xml");
+            return "C:\\Users\\79832\\test\\test.xml";
+        }
         }
     public static IControlService build(){
         String fileName = getEnv();
