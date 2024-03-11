@@ -22,6 +22,6 @@ public class save extends BaseCommand {
         } else {
             requestService.updateRequest(controller.getVector());
         }
-        finish();
+        System.out.print("Saved!");
     }
 }
