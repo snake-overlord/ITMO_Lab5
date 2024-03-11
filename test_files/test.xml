@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.8.1" class="java.beans.XMLDecoder">
+ <object class="java.util.Vector">
+  <void method="add">
+   <object class="DMS.models.Organization">
+    <void property="annualTurnover">
+     <long>12345</long>
+    </void>
+    <void property="coordinates">
+     <object class="DMS.models.Coordinates"/>
+    </void>
+    <void property="creationDate">
+     <object class="java.sql.Timestamp">
+      <long>1710172304146</long>
+      <void property="nanos">
+       <int>146048500</int>
+      </void>
+     </object>
+    </void>
+    <void property="employeesCount">
+     <long>54</long>
+    </void>
+    <void property="id">
+     <long>1</long>
+    </void>
+    <void property="name">
+     <string>helpme</string>
+    </void>
+    <void property="postalAddress">
+     <object class="DMS.models.Address"/>
+    </void>
+    <void property="type">
+     <object class="java.lang.Enum" id="OrganizationType0" method="valueOf">
+      <class>DMS.models.OrganizationType</class>
+      <string>PUBLIC</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="DMS.models.Organization">
+    <void property="annualTurnover">
+     <long>112</long>
+    </void>
+    <void property="coordinates">
+     <object class="DMS.models.Coordinates"/>
+    </void>
+    <void property="creationDate">
+     <object class="java.sql.Timestamp">
+      <long>1710172304146</long>
+      <void property="nanos">
+       <int>146048500</int>
+      </void>
+     </object>
+    </void>
+    <void property="employeesCount">
+     <long>23</long>
+    </void>
+    <void property="id">
+     <long>2</long>
+    </void>
+    <void property="name">
+     <string>wow</string>
+    </void>
+    <void property="postalAddress">
+     <object class="DMS.models.Address"/>
+    </void>
+    <void property="type">
+     <object class="java.lang.Enum" method="valueOf">
+      <class>DMS.models.OrganizationType</class>
+      <string>COMMERCIAL</string>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="DMS.models.Organization">
+    <void property="annualTurnover">
+     <long>12000</long>
+    </void>
+    <void property="coordinates">
+     <object class="DMS.models.Coordinates"/>
+    </void>
+    <void property="creationDate">
+     <object class="java.sql.Timestamp">
+      <long>1710172304146</long>
+      <void property="nanos">
+       <int>146048500</int>
+      </void>
+     </object>
+    </void>
+    <void property="employeesCount">
+     <long>120</long>
+    </void>
+    <void property="id">
+     <long>3</long>
+    </void>
+    <void property="name">
+     <string>text</string>
+    </void>
+    <void property="postalAddress">
+     <object class="DMS.models.Address"/>
+    </void>
+    <void property="type">
+     <object idref="OrganizationType0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="DMS.models.Organization">
+    <void property="annualTurnover">
+     <long>12400</long>
+    </void>
+    <void property="coordinates">
+     <object class="DMS.models.Coordinates"/>
+    </void>
+    <void property="creationDate">
+     <object class="java.sql.Timestamp">
+      <long>1710172304146</long>
+      <void property="nanos">
+       <int>146048500</int>
+      </void>
+     </object>
+    </void>
+    <void property="employeesCount">
+     <long>123</long>
+    </void>
+    <void property="id">
+     <long>4</long>
+    </void>
+    <void property="name">
+     <string>office1</string>
+    </void>
+    <void property="postalAddress">
+     <object class="DMS.models.Address"/>
+    </void>
+    <void property="type">
+     <object idref="OrganizationType0"/>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="DMS.models.Organization">
+    <void property="annualTurnover">
+     <long>13000</long>
+    </void>
+    <void property="coordinates">
+     <object class="DMS.models.Coordinates"/>
+    </void>
+    <void property="creationDate">
+     <object class="java.sql.Timestamp">
+      <long>1710172358993</long>
+      <void property="nanos">
+       <int>993402300</int>
+      </void>
+     </object>
+    </void>
+    <void property="employeesCount">
+     <long>110</long>
+    </void>
+    <void property="id">
+     <long>5</long>
+    </void>
+    <void property="name">
+     <string>text2</string>
+    </void>
+    <void property="postalAddress">
+     <object class="DMS.models.Address"/>
+    </void>
+    <void property="type">
+     <object idref="OrganizationType0"/>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
