@@ -1,13 +1,13 @@
-package requestService;
+package app.requestService;
 
-import models.Organization;
+import DMS.models.Organization;
 
+import java.io.FileNotFoundException;
 import java.util.Vector;
 
 public interface IRequestService {
     Vector<Organization> createRequest();
-    Vector<Organization> readRequest();
-    void updateRequest();
-    void deleteRequest();
-
+    Vector<Organization> readRequest() throws FileNotFoundException;
+    void updateRequest(Vector<Organization> current);
+    void deleteRequest(Vector<Organization> collection);
 }
