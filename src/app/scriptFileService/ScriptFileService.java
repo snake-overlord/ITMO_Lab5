@@ -2,15 +2,15 @@ package app.scriptFileService;
 
 import app.commandService.ICommandService;
 import app.consoleService.IConsoleService;
-import app.exceptions.FileIsEmptyException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Class for executing commands from script file.
+ */
 public class ScriptFileService implements IScriptFileService {
     private IConsoleService consoleService;
     private ICommandService commandService;

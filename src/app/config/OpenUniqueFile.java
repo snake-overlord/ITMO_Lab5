@@ -1,26 +1,28 @@
 package app.config;
-
-import app.exceptions.ScriptRecursionException;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for multiple script files handling. Prevents script recursion.
+ */
 public class OpenUniqueFile {
     List<String> fileNames;
     public OpenUniqueFile(){
         fileNames = new ArrayList<>();
     }
-    public void check(String fileName){
+
+    /**
+     * Checks if the file has been opened earlier in the current script session.
+     * @return true if the file hasn't been opened yet.
+     */
+    public boolean check(String fileName){
         if(fileNames.contains(fileName)){
-            try {
-                throw new ScriptRecursionException("Script recursion!");
-            } catch (ScriptRecursionException e) {
                 System.err.print("Script recursion!\n");
-                throw new RuntimeException();
-            }
+            return false;
         }
         else{
             fileNames.add(fileName);
+            return true;
         }
     }
 }

@@ -5,7 +5,7 @@ import DMS.models.Organization;
 import java.time.LocalDateTime;
 import java.util.Vector;
 
-public interface ICollectionController {
+public interface ICollectionRepository {
     void setDate();
     LocalDateTime getDate();
     void addItem(Organization organization);

@@ -2,6 +2,9 @@ package app.consoleService;
 
 import java.util.Scanner;
 
+/**
+ * Class for parsing input from the console.
+ */
 public class ConsoleService implements IConsoleService {
     private Scanner scan;
     public ConsoleService(Scanner scan){

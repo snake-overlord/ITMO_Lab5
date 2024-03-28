@@ -5,10 +5,17 @@ import DMS.DMS_ControlService.IControlService;
 import DMS.collectionService.CollectionFileService;
 
 import java.util.Objects;
-
+/**
+ * DMS configuration builds all DMS services with provided file name.
+ */
 public class DMS_Configuration {
     private static IControlService controlService;
 
+    /**
+     * Gets environment variable "LAB5_ITEMS_PATH". If variable is null, returns basic file name.
+     * @return - file name as String
+     *
+     */
     public static String getEnv() {
         String env = System.getenv("LAB5_ITEMS_PATH");
         if (Objects.nonNull(env)) {
@@ -19,6 +26,11 @@ public class DMS_Configuration {
             return "C:\\Users\\79832\\test\\test.xml";
         }
         }
+
+    /**
+     * Creates DMS ControlService object
+     * @return - new DMS ControlService object
+     */
     public static IControlService build(){
         String fileName = getEnv();
         controlService = new ControlService(new CollectionFileService(fileName));

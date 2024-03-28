@@ -1,14 +1,18 @@
 package app.commandService.userCommands;
 
 import app.commandService.BaseCommand;
-
+import app.commandService.ICollectionRepository;
+/**
+ * <b>name</b> <b>description</b>
+ */
 public class head extends BaseCommand {
-
+    public ICollectionRepository repository;
     private static final String name = "head";
     private static final String description = ": output the first element of the collection";
 
-    public head() {
+    public head(ICollectionRepository repository) {
         super(name, description);
+        this.repository = repository;
     }
 
     @Override
@@ -17,11 +21,11 @@ public class head extends BaseCommand {
             System.err.print("0 arguments required. Provided: " + (command.length - 1));
             System.out.print("Try again >");
         } else {
-            if(controller.getVector().isEmpty()){
+            if(repository.getVector().isEmpty()){
                 System.err.print("Collection is empty!");
             }
             else{
-                System.out.print(controller.getVector().elementAt(0));
+                System.out.print(repository.getVector().elementAt(0));
             }
         }
     }

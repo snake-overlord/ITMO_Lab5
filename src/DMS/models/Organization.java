@@ -1,9 +1,11 @@
-package models;
+package DMS.models;
 
 import java.util.Date;
 import java.util.Objects;
 
-
+/**
+ * Basic Organization class with properties <b>id</b>, <b>name</b>, <b>coordinates</b>, <b>creationDate</b>, <b>annualTurnover</b>, <b>employeesCount</b>, <b>type</b>, <b>postalAddress</b>.
+ */
 public class Organization implements Comparable<Organization>{
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -14,16 +16,26 @@ public class Organization implements Comparable<Organization>{
     private OrganizationType type; //Поле не может быть null
     private Address postalAddress; //Поле может быть null
 
-    public Organization(Long id, String name, Coordinates coordinates, Date date, Long annualTurnover, Long employeesCount, OrganizationType type, Address address){
+    /**
+     *
+     * @param name - Organization name
+     * @param coordinates - Location
+     * @param date - Creation date
+     * @param annualTurnover - Total annual turnover
+     * @param employeesCount - Number of employees
+     * @param type - Organization type (Public, Open Joint Stock company, Commercial)
+     * @param address - Address
+     */
+    public Organization(String name, Coordinates coordinates, Date date, Long annualTurnover, Long employeesCount, OrganizationType type, Address address){
         this.annualTurnover = annualTurnover;
         this.coordinates = coordinates;
         this.creationDate = date;
-        this.id = id;
         this.name = name;
         this.employeesCount = employeesCount;
         this.type = type;
         this.postalAddress = address;
     }
+    public Organization(){};
     public Long getId(){
         return id;
     }
@@ -69,6 +81,9 @@ public class Organization implements Comparable<Organization>{
     }
 
     public void setEmployeesCount(Long employeesCount) {
+        if(employeesCount == null){
+            System.err.print("Field Employees Count is corrupted!");
+        }
         this.employeesCount = employeesCount;
     }
 
@@ -80,9 +95,11 @@ public class Organization implements Comparable<Organization>{
         this.type = type;
     }
 
+
     public Address getPostalAddress() {
         return postalAddress;
     }
+
 
     public void setPostalAddress(Address postalAddress) {
         this.postalAddress = postalAddress;
@@ -91,7 +108,17 @@ public class Organization implements Comparable<Organization>{
 
     @Override
     public int compareTo(Organization o) {
-        return (int)(this.id - o.getId());
+        int res = this.id.compareTo(o.getId());
+        if (res == 0) {
+            res = this.annualTurnover.compareTo(o.getAnnualTurnover());
+            if (res == 0) {
+                res = this.employeesCount.compareTo(o.getEmployeesCount());
+                if (res == 0) {
+                    res = this.creationDate.compareTo(o.getCreationDate());
+                }
+            }
+        }
+        return res;
     }
 
     @Override
@@ -99,20 +126,38 @@ public class Organization implements Comparable<Organization>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Organization that = (Organization) o;
-        return employeesCount == that.employeesCount && Objects.equals(id, that.id) && Objects.equals(name, that.name) && type == that.type && Objects.equals(postalAddress, that.postalAddress);
+        return Objects.equals(employeesCount, that.employeesCount) && Objects.equals(id, that.id) && Objects.equals(name, that.name) && type == that.type && Objects.equals(postalAddress, that.postalAddress);
     }
+
 
     @Override
     public int hashCode() {
         return Objects.hash(id, name, employeesCount, type, postalAddress);
     }
 
+
     @Override
     public String toString() {
-        return "Организация \"" + name+ "\" №" + id +
+        return "Организация \"" + name+ "\"; ID: " + id +
                 "; Число сотрудников: " + employeesCount +
                 "; Вид: " + type +
-                "; Адрес: " + postalAddress + "; Дата основания: " + creationDate +
-        "; Годовой оборот: " + annualTurnover;
+                "; Адрес: " + getPostalAddress().getZipCode() + "; Дата основания: " + creationDate +
+        "; Годовой оборот: " + annualTurnover + "\n";
+    }
+
+    /**
+     * Checks Organization parameters
+     * @return true if all fields are valid
+     */
+    public boolean validate(){
+        return id > 0 &&
+                name != null &&
+                coordinates != null &&
+                creationDate != null &&
+                type != null &&
+                annualTurnover != null &&
+                annualTurnover > 0 &&
+                employeesCount != null &&
+                employeesCount > 0;
     }
 }

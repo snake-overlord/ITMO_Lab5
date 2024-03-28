@@ -6,6 +6,9 @@ import DMS.models.Organization;
 import java.io.FileNotFoundException;
 import java.util.Vector;
 
+/**
+ * Class for communicating with the database.
+ */
 public class RequestService implements IRequestService{
     private final IControlService controlService;
     public RequestService(IControlService controlService) {

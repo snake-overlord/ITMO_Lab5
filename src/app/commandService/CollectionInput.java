@@ -3,12 +3,20 @@ package app.commandService;
 import DMS.models.Address;
 import DMS.models.Coordinates;
 import DMS.models.OrganizationType;
-import app.consoleService.ConsoleService;
 import app.consoleService.IConsoleService;
 
-public class CollectionInputController {
+/**
+ * Class for checking user input.
+ * <p>Used for adding custom organizations.<p>
+ */
+public class CollectionInput {
     private final IConsoleService consoleService;
-    public CollectionInputController(IConsoleService consoleService){
+
+    /**
+     *
+     * @param consoleService - read and parse user input.
+     */
+    public CollectionInput(IConsoleService consoleService){
         this.consoleService = consoleService;
     }
     public String getName(){
@@ -43,19 +51,12 @@ public class CollectionInputController {
     }
     public OrganizationType getType(){
         String fieldName = "organization type";
-        String line;
         System.out.printf("Enter %s:%s", fieldName, "\n>");
-        while(!consoleService.getScanner().hasNext()){
-            System.err.println("Can't be null!\n");
-            System.out.printf("Enter %s:%s", fieldName, "\n>");
-            consoleService.readLine();
-        }
-        line = consoleService.readLine().trim();
+        String line = consoleService.readLine().trim();
         while(!OrganizationType.names().contains(line)){
-            System.out.print(line);
-            System.out.print(OrganizationType.names());
-            System.err.println("Invalid type!\n");
-            System.out.printf("Enter %s:%s", fieldName, ">");
+            System.out.print("Invalid type!\n");
+            System.out.print(OrganizationType.names() + "\n");
+            System.out.printf("Enter %s:%s", fieldName, "\n>");
             line = consoleService.readLine().trim();
         }
         System.out.printf("Got value: %s\n>", line);
@@ -63,55 +64,66 @@ public class CollectionInputController {
 
     }
 
-
-
-
     private Integer getInteger(String fieldName) {
-        String line;
         System.out.printf("Enter %s:%s", fieldName, "\n>");
-        while(!consoleService.getScanner().hasNextInt()){
-            System.err.println("That's not an Integer!\n");
-            System.out.printf("Enter %s:%s", fieldName, "\n>");
-            consoleService.readLine();
+        String line = consoleService.readLine().trim();
+        int number = 1;
+        boolean e = true;
+        while(e) {
+            try {
+                number = Integer.parseInt(line);
+                e = false;
+            } catch (NumberFormatException ex) {
+                System.out.printf("Required type: Integer. Enter %s:%s", fieldName,"\n>");
+                line = consoleService.readLine().trim();
+            }
         }
-        line = consoleService.readLine().trim();
-        System.out.printf("Got value: %s\n", line);
-        return Integer.parseInt(line);
+        System.out.printf("Got value: %s\n>", number);
+        return number;
     }
     private Long getLong(String fieldName) {
-        String line;
         System.out.printf("Enter %s:%s", fieldName, "\n>");
-        while(!consoleService.getScanner().hasNextLong()){
-            System.err.println("That's not a Long!\n");
-            System.out.printf("Enter %s:%s", fieldName, "\n>");
-            consoleService.readLine();
+        String line = consoleService.readLine().trim();
+        long number = 1;
+        boolean e = true;
+        while(e) {
+            try {
+                number = Long.parseLong(line);
+                e = false;
+            } catch (NumberFormatException ex) {
+                System.out.printf("Required type: Long. Enter %s:%s", fieldName,"\n>");
+                line = consoleService.readLine().trim();
+            }
         }
-        line = consoleService.readLine().trim();
-        System.out.printf("Got value: %s\n", line);
-        return Long.parseLong(line);
+        System.out.printf("Got value: %s\n>", number);
+        return number;
     }
     private Double getDouble(String fieldName) {
-        String line;
         System.out.printf("Enter %s:%s", fieldName, "\n>");
-        while(!consoleService.getScanner().hasNextDouble()){
-            System.out.println("That's not a Double!\n");
-            System.out.printf("Enter %s:%s", fieldName, "\n>");
-            consoleService.readLine();
+        String line = consoleService.readLine().trim();
+        double number = 1;
+        boolean e = true;
+        while(e) {
+            try {
+                number = Double.parseDouble(line);
+                e = false;
+            } catch (NumberFormatException ex) {
+                System.out.printf("Required type: Double. Enter %s:%s", fieldName,"\n>");
+                line = consoleService.readLine().trim();
+            }
         }
-        line = consoleService.readLine();
-        System.out.printf("Got value: %s\n>", line);
-        return Double.parseDouble(line);
+        System.out.printf("Got value: %s\n>", number);
+        return number;
     }
     private String getString(String fieldName, boolean canBeNull) {
-        String line;
         System.out.printf("Enter %s:%s", fieldName, "\n>");
+        String line = consoleService.readLine();
         if(!canBeNull)
-            while(!consoleService.getScanner().hasNext()){
-                System.err.println("Can't be null!\n");
+            while(line.isEmpty()){
+                System.out.println("Can't be null!");
                 System.out.printf("Enter %s:%s", fieldName, "\n>");
-                consoleService.readLine();
+                line = consoleService.readLine();
             }
-        line = consoleService.readLine().trim();
         System.out.printf("Got value: %s \n", line);
         return line;
     }

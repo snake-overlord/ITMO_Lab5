@@ -2,21 +2,25 @@ package app.commandService.userCommands;
 
 import DMS.models.Organization;
 import app.commandService.BaseCommand;
-import app.commandService.CollectionInputController;
-import app.consoleService.ConsoleService;
-import app.consoleService.IConsoleService;
+import app.commandService.CollectionInput;
+import app.commandService.ICollectionRepository;
+import app.config.ServiceConfiguration;
 
 import java.time.LocalDateTime;
 
-
+/**
+ * <b>name</b> <b>description</b>
+ */
 public class add extends BaseCommand {
+    public ICollectionRepository repository;
     private static final String name = "add";
     private static final String description = "{element} : add a new element to the collection";
-    private CollectionInputController collectionInputController;
+    private CollectionInput collectionInput;
 
-    public add(CollectionInputController inputController) {
+    public add(CollectionInput inputController, ICollectionRepository repository) {
         super(name, description);
-        this.collectionInputController = inputController;
+        this.collectionInput = inputController;
+        this.repository = repository;
     }
 
     @Override
@@ -26,14 +30,14 @@ public class add extends BaseCommand {
             System.out.print("Try again >");
         } else {
 
-            controller.addItem(new Organization(
-                    collectionInputController.getName(),
-                    collectionInputController.getCoordinates(),
+            repository.addItem(new Organization(
+                    collectionInput.getName(),
+                    collectionInput.getCoordinates(),
                     java.sql.Timestamp.valueOf(LocalDateTime.now()),
-                    collectionInputController.getAnnualTurnover(),
-                    collectionInputController.getEmployeeCount(),
-                    collectionInputController.getType(),
-                    collectionInputController.getAddress()));
+                    collectionInput.getAnnualTurnover(),
+                    collectionInput.getEmployeeCount(),
+                    collectionInput.getType(),
+                    collectionInput.getAddress()));
         }
         finish();
     }

@@ -14,21 +14,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static DMS.DMS_Configuration.getEnv;
-
 public class ServiceConfiguration {
-
+    /**
+     * Sets all app services.
+     */
     private static final IConsoleService consoleService = new ConsoleService(new Scanner(System.in));
     private  static ModeController modeController;
-    private static CollectionController collectionService;
+    private static CollectionRepository repository;
     private static ICommandService commandService;
     private static IRequestService requestService;
-    private static CollectionInputController inputController;
+    private static CollectionInput inputController;
     private static IScriptFileService scriptFileService;
 
+    /**
+     * Builds ModeController with required services.
+     */
     public static ModeController build() {
-        inputController = new CollectionInputController(consoleService);
-        collectionService = new CollectionController();
+        inputController = new CollectionInput(consoleService);
+        repository = new CollectionRepository();
         requestService = new RequestService(DMS_Configuration.build());
         commandService = new CommandService(addCommands());
         commandService.addCommand(new help(commandService));
@@ -36,7 +39,7 @@ public class ServiceConfiguration {
 
         modeController = new ModeController(requestService,
                 commandService,
-                collectionService,
+                repository,
                 consoleService, scriptFileService);
         commandService.addCommand(new executeScript(modeController));
         return modeController;
@@ -44,26 +47,23 @@ public class ServiceConfiguration {
 
     private static List<BaseCommand> addCommands() {
         List<BaseCommand> commands = new ArrayList<>();
-        commands.add(new add(inputController));
-        commands.add(new addIfMax(inputController));
-        commands.add(new addIfMin(inputController));
-        commands.add(new clear());
+        commands.add(new add(inputController, repository));
+        commands.add(new addIfMax(inputController, repository));
+        commands.add(new addIfMin(inputController, repository));
+        commands.add(new clear(repository));
         commands.add(new exit());
-        commands.add(new filterByType());
-        commands.add(new groupCountingByType());
-        commands.add(new countGreaterThanEmployeesCount(inputController));
-        commands.add(new head());
-        commands.add(new info());
-        commands.add(new removeById());
-        commands.add(new save(requestService));
-        commands.add(new show());
-        commands.add(new update(inputController));
-        commands.add(new printFieldAscendingType());
+        commands.add(new filterByType(repository));
+        commands.add(new groupCountingByType(repository));
+        commands.add(new countGreaterThanEmployeesCount(inputController, repository));
+        commands.add(new head(repository));
+        commands.add(new info(repository));
+        commands.add(new removeById(repository));
+        commands.add(new save(requestService, repository));
+        commands.add(new show(repository));
+        commands.add(new update(inputController, repository));
+        commands.add(new printFieldAscendingType(repository));
 
         return commands;
-    }
-    public static CollectionController getCollectionService() {
-        return collectionService;
     }
 
 

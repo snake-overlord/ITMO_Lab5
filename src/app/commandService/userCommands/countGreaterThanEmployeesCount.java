@@ -2,21 +2,24 @@ package app.commandService.userCommands;
 
 import DMS.models.Organization;
 import app.commandService.BaseCommand;
-import app.commandService.CollectionInputController;
-import app.consoleService.ConsoleService;
-import app.consoleService.IConsoleService;
+import app.commandService.CollectionInput;
+import app.commandService.ICollectionRepository;
 
 import java.text.NumberFormat;
 import java.text.ParsePosition;
 import java.util.Vector;
-
+/**
+ * <b>name</b> <b>description</b>
+ */
 public class countGreaterThanEmployeesCount extends BaseCommand {
+    public ICollectionRepository repository;
     public static final String name = "count_greater_than_employees_count";
     public static final String description = "count : output the number of elements with Employee Count field greater than the specified one";
-    CollectionInputController collectionInputController;
-    public countGreaterThanEmployeesCount(CollectionInputController inputController) {
+    CollectionInput collectionInput;
+    public countGreaterThanEmployeesCount(CollectionInput inputController, ICollectionRepository repository) {
         super(name, description);
-        this.collectionInputController = inputController;
+        this.collectionInput = inputController;
+        this.repository = repository;
     }
 
     @Override
@@ -26,7 +29,7 @@ public class countGreaterThanEmployeesCount extends BaseCommand {
             System.out.print("Try again >");
         } else {
             Long ecount;
-            Vector<Organization> collection = controller.getVector();
+            Vector<Organization> collection = repository.getVector();
             ParsePosition pos = new ParsePosition(0);
             NumberFormat.getInstance().parse(command[1], pos);
             if(pos.getIndex()==command[1].length()|!(command[1].length()>19)){

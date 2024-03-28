@@ -2,8 +2,16 @@ package app.commandService;
 
 import java.util.List;
 
+/**
+ * Class for operating with available commands.
+ */
 public class CommandService implements ICommandService{
-    private List<BaseCommand> commands;
+    private final List<BaseCommand> commands;
+
+    /**
+     *
+     * @param commands - List for storing available user commands.
+     */
     public CommandService(List<BaseCommand> commands){
         this.commands = commands;
     }
@@ -15,6 +23,11 @@ public class CommandService implements ICommandService{
     public void addCommands(List<BaseCommand> c){
         commands.addAll(c);
     }
+
+    /**
+     * Find command by name and tries to execute.
+     * @param command - parsed command of the form [name, arg]
+     */
     @Override
     public void executeCommand(String[] command) {
         if(command.length == 0){

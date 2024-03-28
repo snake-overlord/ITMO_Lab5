@@ -2,20 +2,23 @@ package app.commandService.userCommands;
 
 import DMS.models.Organization;
 import app.commandService.BaseCommand;
-import app.commandService.CollectionInputController;
-import app.consoleService.ConsoleService;
-import app.consoleService.IConsoleService;
+import app.commandService.CollectionInput;
+import app.commandService.ICollectionRepository;
 
 import java.time.LocalDateTime;
-
+/**
+ * <b>name</b> <b>description</b>
+ */
 public class addIfMax extends BaseCommand {
+    public ICollectionRepository repository;
     private static final String name = "add_if_max";
     private static final String description = "{element} : add a new element to the collection, if value {employee count} is max.";
-    private final CollectionInputController collectionInputController;
+    private final CollectionInput collectionInput;
 
-    public addIfMax(CollectionInputController inputController) {
+    public addIfMax(CollectionInput inputController, ICollectionRepository repository) {
         super(name, description);
-        this.collectionInputController = inputController;
+        this.collectionInput = inputController;
+        this.repository = repository;
     }
 
     @Override
@@ -25,21 +28,21 @@ public class addIfMax extends BaseCommand {
             System.out.print("Try again >");
         } else {
             Organization element = new Organization(
-                    collectionInputController.getName(),
-                    collectionInputController.getCoordinates(),
+                    collectionInput.getName(),
+                    collectionInput.getCoordinates(),
                     java.sql.Timestamp.valueOf(LocalDateTime.now()),
-                    collectionInputController.getAnnualTurnover(),
-                    collectionInputController.getEmployeeCount(),
-                    collectionInputController.getType(),
-                    collectionInputController.getAddress());
+                    collectionInput.getAnnualTurnover(),
+                    collectionInput.getEmployeeCount(),
+                    collectionInput.getType(),
+                    collectionInput.getAddress());
             long maxEmployees = 0;
-            for(Organization x:controller.getVector()){
+            for(Organization x:repository.getVector()){
                 if(x.getEmployeesCount()>maxEmployees){
                     maxEmployees = x.getEmployeesCount();
                 }
             }
             if(element.getEmployeesCount()>maxEmployees)
-                    controller.addItem(element);
+                repository.addItem(element);
         }
         finish();
     }

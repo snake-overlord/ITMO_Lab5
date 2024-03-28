@@ -1,23 +1,23 @@
 package app.commandService;
 
-import app.config.ServiceConfiguration;
-import app.exceptions.ScriptRecursionException;
-import app.requestService.IRequestService;
-
+/**
+ * Abstract user command class.
+ */
 public abstract class BaseCommand {
-    public ICollectionController controller = ServiceConfiguration.getCollectionService();
     String name;
     String description;
+
     public BaseCommand(String name, String description){
         this.name = name;
         this.description = description;
     }
-    public void setController(ICollectionController controller){
-        this.controller = controller;
-    }
     String getName(){
         return this.name;
     }
+
+    /**
+     * Notifies the user when the command is executed successfully.
+     */
     protected void finish(){
         System.out.print("Finished successfully!\n>");
     }

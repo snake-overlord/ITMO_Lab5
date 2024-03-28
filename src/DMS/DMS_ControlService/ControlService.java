@@ -5,7 +5,9 @@ import DMS.models.Organization;
 
 import java.io.FileNotFoundException;
 import java.util.Vector;
-
+/**
+ * This service is communicated with the app. Provides CRUD operations.
+ */
 public class ControlService implements IControlService{
     ICollectionFileService collectionFileService;
     public ControlService(ICollectionFileService collectionFileService){

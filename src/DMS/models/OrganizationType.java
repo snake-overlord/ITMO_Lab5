@@ -1,16 +1,20 @@
-package models;
+package DMS.models;
 
+import java.util.ArrayList;
+import java.util.List;
+/**
+ * Basic organization types.
+ */
 public enum OrganizationType {
     COMMERCIAL,
-    GOVERNMENT,
-    TRUST,
-    PRIVATE_LIMITED_COMPANY;
+    PUBLIC,
+    OPEN_JOINT_STOCK_COMPANY;
 
-    public static String names() {
-        StringBuilder nameList = new StringBuilder();
-        for (var weaponType : values()) {
-            nameList.append(weaponType.name()).append(", ");
+    public static List<String> names() {
+        List<String> nameList = new ArrayList<>();
+        for (var orgType : values()) {
+            nameList.add(orgType.name());
         }
-        return nameList.substring(0, nameList.length()-2);
+        return nameList;
     }
 }
