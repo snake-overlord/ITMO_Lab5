@@ -81,9 +81,6 @@ public class Organization implements Comparable<Organization>{
     }
 
     public void setEmployeesCount(Long employeesCount) {
-        if(employeesCount == null){
-            System.err.print("Field Employees Count is corrupted!");
-        }
         this.employeesCount = employeesCount;
     }
 
