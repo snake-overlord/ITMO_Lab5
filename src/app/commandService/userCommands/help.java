@@ -2,9 +2,7 @@ package app.commandService.userCommands;
 
 import app.commandService.BaseCommand;
 import app.commandService.ICommandService;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class help extends BaseCommand {
     public static final String name = "help";
     public static final String description = ": available commands info";

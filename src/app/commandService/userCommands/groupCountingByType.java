@@ -7,9 +7,7 @@ import app.commandService.ICollectionRepository;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class groupCountingByType extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "group_counting_by_type";

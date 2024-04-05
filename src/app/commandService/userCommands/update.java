@@ -8,9 +8,7 @@ import app.commandService.ICollectionRepository;
 
 import java.util.Objects;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class update extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "update_by_id";

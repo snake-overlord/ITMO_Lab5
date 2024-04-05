@@ -8,9 +8,7 @@ import app.commandService.ICollectionRepository;
 import java.text.NumberFormat;
 import java.text.ParsePosition;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class countGreaterThanEmployeesCount extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "count_greater_than_employees_count";

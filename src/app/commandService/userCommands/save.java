@@ -4,9 +4,7 @@ import app.commandService.BaseCommand;
 import app.commandService.ICollectionRepository;
 import app.requestService.IRequestService;
 import app.requestService.RequestService;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class save extends BaseCommand {
     public ICollectionRepository repository;
     private IRequestService requestService;

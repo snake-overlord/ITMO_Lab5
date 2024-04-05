@@ -2,9 +2,7 @@ package app.commandService.userCommands;
 
 import app.commandService.BaseCommand;
 import app.commandService.ICollectionRepository;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class head extends BaseCommand {
     public ICollectionRepository repository;
     private static final String name = "head";

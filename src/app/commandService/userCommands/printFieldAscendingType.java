@@ -8,9 +8,7 @@ import app.commandService.ICollectionRepository;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class printFieldAscendingType extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "print_field_ascending_type";

@@ -72,8 +72,7 @@ public class ModeController {
         while(isInteractive){
             openUniqueFile = new OpenUniqueFile();
             consoleService.setScanner(new Scanner(System.in));
-            String[] userCommand;
-            userCommand = consoleService.parseCommand();
+            String[] userCommand = consoleService.parseCommand();
             commandService.executeCommand(userCommand);
         }
 

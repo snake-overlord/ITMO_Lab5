@@ -8,9 +8,7 @@ import app.commandService.ICollectionRepository;
 import java.io.FileNotFoundException;
 import java.util.Objects;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class filterByType extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "filter_by_type";

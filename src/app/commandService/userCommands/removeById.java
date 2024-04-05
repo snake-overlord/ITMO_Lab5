@@ -6,9 +6,7 @@ import app.commandService.ICollectionRepository;
 
 import java.util.Objects;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class removeById extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "remove_by_id";

@@ -6,9 +6,7 @@ import app.commandService.CollectionInput;
 import app.commandService.ICollectionRepository;
 
 import java.time.LocalDateTime;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class addIfMin extends BaseCommand {
     public ICollectionRepository repository;
     private static final String name = "add_if_min";

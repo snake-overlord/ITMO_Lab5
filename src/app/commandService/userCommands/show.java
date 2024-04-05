@@ -3,9 +3,7 @@ package app.commandService.userCommands;
 import DMS.models.Organization;
 import app.commandService.BaseCommand;
 import app.commandService.ICollectionRepository;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class show extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "show";

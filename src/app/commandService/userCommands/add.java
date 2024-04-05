@@ -8,9 +8,6 @@ import app.config.ServiceConfiguration;
 
 import java.time.LocalDateTime;
 
-/**
- * <b>name</b> <b>description</b>
- */
 public class add extends BaseCommand {
     public ICollectionRepository repository;
     private static final String name = "add";

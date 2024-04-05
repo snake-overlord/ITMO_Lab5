@@ -6,9 +6,7 @@ import app.commandService.ICollectionRepository;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Vector;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class info extends BaseCommand {
     public ICollectionRepository repository;
     public static final String name = "info";

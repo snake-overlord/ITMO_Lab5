@@ -5,9 +5,7 @@ import app.config.ModeController;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-/**
- * <b>name</b> <b>description</b>
- */
+
 public class executeScript extends BaseCommand {
     private static final String name = "execute_script";
     private static final String description = "file_name : read and execute the script from the specified file.";
