@@ -11,9 +11,6 @@ public abstract class BaseCommand {
         this.name = name;
         this.description = description;
     }
-    String getName(){
-        return this.name;
-    }
 
     /**
      * Notifies the user when the command is executed successfully.

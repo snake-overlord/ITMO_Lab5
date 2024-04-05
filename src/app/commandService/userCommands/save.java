@@ -8,8 +8,8 @@ import app.requestService.RequestService;
 public class save extends BaseCommand {
     public ICollectionRepository repository;
     private IRequestService requestService;
-    private static final String name = "save";
-    private static final String description = ": save the collection";
+    public static final String name = "save";
+    public static final String description = ": save the collection";
 
     public save(IRequestService requestService, ICollectionRepository repository) {
         super(name, description);

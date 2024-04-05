@@ -7,8 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class executeScript extends BaseCommand {
-    private static final String name = "execute_script";
-    private static final String description = "file_name : read and execute the script from the specified file.";
+    public static final String name = "execute_script";
+    public static final String description = "file_name : read and execute the script from the specified file.";
     private final ModeController controller;
 
     public executeScript(ModeController controller) {

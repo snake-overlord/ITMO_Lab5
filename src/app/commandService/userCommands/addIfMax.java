@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 public class addIfMax extends BaseCommand {
     public ICollectionRepository repository;
-    private static final String name = "add_if_max";
-    private static final String description = "{element} : add a new element to the collection, if value {employee count} is max.";
+    public static final String name = "add_if_max";
+    public static final String description = "{element} : add a new element to the collection, if value {employee count} is max.";
     private final CollectionInput collectionInput;
 
     public addIfMax(CollectionInput inputController, ICollectionRepository repository) {

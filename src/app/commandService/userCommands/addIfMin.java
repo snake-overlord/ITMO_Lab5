@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 public class addIfMin extends BaseCommand {
     public ICollectionRepository repository;
-    private static final String name = "add_if_min";
-    private static final String description = "{element} : add a new element to the collection, if value {employee count} is min.";
+    public static final String name = "add_if_min";
+    public static final String description = "{element} : add a new element to the collection, if value {employee count} is min.";
     private final CollectionInput collectionInput;
 
     public addIfMin(CollectionInput inputController, ICollectionRepository repository) {

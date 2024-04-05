@@ -5,8 +5,8 @@ import app.commandService.ICollectionRepository;
 
 public class head extends BaseCommand {
     public ICollectionRepository repository;
-    private static final String name = "head";
-    private static final String description = ": output the first element of the collection";
+    public static final String name = "head";
+    public static final String description = ": output the first element of the collection";
 
     public head(ICollectionRepository repository) {
         super(name, description);

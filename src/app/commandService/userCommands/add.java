@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 
 public class add extends BaseCommand {
     public ICollectionRepository repository;
-    private static final String name = "add";
-    private static final String description = "{element} : add a new element to the collection";
+    public static final String name = "add";
+    public static final String description = "{element} : add a new element to the collection";
     private CollectionInput collectionInput;
 
     public add(CollectionInput inputController, ICollectionRepository repository) {

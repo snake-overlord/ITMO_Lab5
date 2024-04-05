@@ -1,10 +1,12 @@
 package app.commandService;
 
-import java.util.List;
+import java.util.Map;
 
 public interface ICommandService {
     void addCommand(BaseCommand command);
-    void addCommands(List<BaseCommand> commands);
+
+    void addCommands(Map<String, BaseCommand> c);
+
     void executeCommand(String[] command);
     void printCommands();
 }

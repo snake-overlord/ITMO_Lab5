@@ -5,8 +5,8 @@ import app.commandService.ICollectionRepository;
 
 public class clear extends BaseCommand {
     public ICollectionRepository repository;
-    private static final String name = "clear";
-    private static final String description = ": clear the collection";
+    public static final String name = "clear";
+    public static final String description = ": clear the collection";
 
     public clear(ICollectionRepository repository) {
         super(name, description);
